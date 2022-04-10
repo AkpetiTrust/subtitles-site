@@ -31,6 +31,7 @@ main {
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
   }
 
   .talk {
@@ -68,6 +69,10 @@ main {
       display: flex;
       align-items: center;
       width: fit-content;
+      &.disabled {
+        background-color: #ff715ea6;
+        pointer-events: none;
+      }
       svg {
         margin-left: 8px;
       }
@@ -98,7 +103,7 @@ main {
   .image-container {
     img {
       max-width: 80%;
-      transform: translateY(-100px);
+      transform: translateY(-15%);
     }
   }
 
@@ -124,11 +129,45 @@ main {
     bottom: 100px;
     left: 0;
     overflow: hidden;
+    z-index: -1;
     .water-mark {
       color: rgba(0, 0, 0, 0.07);
       font-weight: 700;
       font-size: 110px;
       transform: translateX(-220px);
     }
+  }
+}
+
+@media screen and(max-width:700px) {
+  body {
+    overflow: unset;
+  }
+  main {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .image-container {
+      margin-top: 60px;
+      img {
+        max-width: 100%;
+        transform: translateX(-30px);
+      }
+    }
+
+    .background-circle-container,
+    .water-mark-container {
+      display: none;
+    }
+  }
+}
+
+@media screen and(max-width:460px) {
+  body {
+    overflow: unset;
+  }
+  main {
+    padding: 20px 15px;
   }
 }

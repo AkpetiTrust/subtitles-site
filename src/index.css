@@ -32,6 +32,7 @@ main .grid {
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
 }
 
 main .talk .question {
@@ -80,6 +81,11 @@ main .talk .btn {
   width: fit-content;
 }
 
+main .talk .btn.disabled {
+  background-color: #ff715ea6;
+  pointer-events: none;
+}
+
 main .talk .btn svg {
   margin-left: 8px;
 }
@@ -110,8 +116,8 @@ main h1 span::before {
 
 main .image-container img {
   max-width: 80%;
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px);
+  -webkit-transform: translateY(-15%);
+          transform: translateY(-15%);
 }
 
 main .background-circle-container {
@@ -138,6 +144,7 @@ main .water-mark-container {
   bottom: 100px;
   left: 0;
   overflow: hidden;
+  z-index: -1;
 }
 
 main .water-mark-container .water-mark {
@@ -146,5 +153,36 @@ main .water-mark-container .water-mark {
   font-size: 110px;
   -webkit-transform: translateX(-220px);
           transform: translateX(-220px);
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    overflow: unset;
+  }
+  main .grid {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  main .image-container {
+    margin-top: 60px;
+  }
+  main .image-container img {
+    max-width: 100%;
+    -webkit-transform: translateX(-30px);
+            transform: translateX(-30px);
+  }
+  main .background-circle-container,
+  main .water-mark-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  body {
+    overflow: unset;
+  }
+  main {
+    padding: 20px 15px;
+  }
 }
 /*# sourceMappingURL=index.css.map */

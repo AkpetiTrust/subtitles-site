@@ -1,7 +1,14 @@
 import Logo from "./images/Logo.jsx";
 import Mockup from "./images/Mockup.png";
+import { useState } from "react";
 
 function Main() {
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(true);
+  };
+
   return (
     <main>
       <div className="logo">{Logo}</div>
@@ -19,7 +26,12 @@ function Main() {
             now 😙.
           </p>
           <div className="btn-container">
-            <a href="/" className="btn">
+            <a
+              href="/SubtitleApp.apk"
+              download
+              className={`btn ${clicked ? "disabled" : ""}`}
+              onClick={handleClick}
+            >
               DOWNLOAD APK{" "}
               <svg
                 width="16"
